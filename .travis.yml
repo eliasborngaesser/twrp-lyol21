@@ -23,6 +23,8 @@ before_script:
   # > More on https://github.com/PhantomZone54/twrp_sources_norepo/releases/latest
   # Uncomment & Use below line If Building for Lollipop-based Devices
   - TWRP_SOURCE="https://github.com/PhantomZone54/twrp_sources_norepo/releases/download/v3.4.0-20201103/MinimalOmniRecovery-twrp-5.1-norepo-20201103.tzst"
+  - wget -q --show-progress --progress=bar:force "${TWRP_SOURCE}" -O twrp.tzst
+  - tar --zstd -xf twrp.tzst --directory $HOME/twrp/ && rm twrp.tzst
 script:
   # Replace your ${_USERNAME_}, ${_REPO_SLUG_}, ${_VENDORNAME_}, ${_CODENAME_}
   - cd $HOME/twrp/ && git clone https://github.com/eliasborngaesser/twrp-lyol21.git device/huawei/lyol21
